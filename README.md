@@ -1,1 +1,1 @@
-# esp8266-matrix-lighting
+# ESP8266 Matrix Lighting
