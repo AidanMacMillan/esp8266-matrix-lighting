@@ -1,0 +1,379 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                margin: 0;
+
+                font-family: 'Roboto', sans-serif;
+                color: #333;
+                background-color: #FBFBFB;
+            }
+
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .top {
+                position: sticky;
+                padding: 20px;
+                background-color: white;
+            }
+
+            .shadow {
+                box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+            }
+
+            .top .container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .top h1 {
+                font-family: 'Roboto Slab', sans-serif;
+                font-size: 18px;
+                margin: 0;
+            }
+
+            h1 {
+                font-size: 24px;
+                color: #111;
+                font-weight: normal;
+                white-space: nowrap;
+                text-align: center;
+                margin: 5px;
+            }
+
+            h2 {
+                font-size: 16px;
+                color: #111;
+                font-weight: normal;
+                white-space: nowrap;
+                margin: 5px;
+            }
+
+            h3 {
+                text-align: left;
+                font-size: 14px;
+                color: #111;
+                font-weight: normal;
+                white-space: nowrap;
+                margin: 5px;
+            }
+
+            hr {
+                opacity: 0.25;
+            }
+
+            a {
+                display: block;
+                color: #111;
+                text-decoration: none;
+
+                transition: 0.2s;
+            }
+
+            a:hover {
+                transform: translateY(-2px);
+            }
+
+            .dashboard {
+                margin-top: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .display {
+                margin: 10px;
+                padding: 0.5%;
+                box-sizing: border-box;
+                width: 400px;
+                background-color: white;
+                border-radius: 5px;
+            }
+
+            .led {
+                border-radius: 15%;
+                border: 1px solid rgba(0,0,0,0.1);
+                margin: calc(0.5% - 1px);
+                width: 11.5%;
+                padding-bottom: 11.5%;
+                float: left;
+                background-color: #F4F4F4;
+                cursor: crosshair;
+            }
+
+            .controls {
+                margin: 10px;
+                flex-grow: 1;
+                width: 340px;
+                padding: 10px;
+                background-color: white;
+                border-radius: 5px;
+            }
+
+            button {
+                border: none;
+                border-radius: 14px;
+
+                margin: 2px 0;
+                background-color: transparent;
+                border: 1px solid #0090FF;
+                color: #0090FF;
+                cursor: pointer;
+                padding: 5px 10px;
+                font-size: 14px;
+
+                transition: 0.2s;
+            }
+
+            button:hover {
+                background-color: #E9F6FF;
+            }
+
+            button.selected {
+                background-color: #0090FF;
+                color: white;
+            }
+
+            .row {
+                display: grid;
+                grid-template-columns: 50% repeat(auto-fill, minmax(100px, 1fr));
+            }
+
+            .row *:last-child {
+                justify-self: end;
+            }
+
+            
+            form {
+                text-align: center;
+            }
+
+            .update {
+                margin-top: 10px;
+            }
+
+            input {
+                border-radius: 3px;
+                border: 1px solid #0090FF;
+                background-color: transparent;
+            }
+
+            input[type="color"] {
+                -webkit-appearance: none;
+                padding: 0;
+            }
+            input[type="color"]::-webkit-color-swatch-wrapper {
+                padding: 0;
+            }
+            input[type="color"]::-webkit-color-swatch {
+                border: none;
+            }
+
+            .slider {
+                width: 100%;
+            }
+        </style>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="top shadow">
+            <div class="container">
+                <h1>ESP8266 Matrix Lighting</h1>
+                <h1><a href="https://github.com/AidanMacMillan/esp8266-matrix-lighting" target="blank">GitHub</a></h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="dashboard">
+                <div class="display shadow">
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                    <div class="led"></div>
+                </div>
+                <div class="controls shadow">
+                    <h2>Brightness</h2>
+                    <input type="range" min="1" max="255" value="20" class="slider" id="brightness">
+                    <h2>Modes</h2>
+                    <div class="modes" style="margin-bottom: 10px;">
+                        <button class="mode selected">Solid</button>
+                        <button class="mode">Ambience</button>
+                        <button class="mode">Clock</button>
+                        <button class="mode">Party</button>
+                    </div>
+
+                    <div id="Solid">
+                        <form onsubmit="return false;">
+                            <div class="row">
+                                <h3>Color</h3>
+                                <input type="color" id="solidColor" name="color" value="#ffffff">
+                            </div>
+                            <button class="update" id="solidUpdate">Update Matrix</button>
+                        </form>
+                    </div>
+
+                    <div id="Ambience">
+                        <form onsubmit="return false;">
+                            <div class="row">
+                                <h3>Effect</h3>
+                                <select id="ambienceEffect">
+                                    <option value="rainbowWave">Hue Rotate</option>
+                                    <option value="rainbowWave">Rainbow Wave</option>
+                                    <option value="rainbowWave">Rain</option>
+                                </select>
+                            </div>
+                            <button class="update" id="solidUpdate">Update Matrix</button>
+                        </form>
+                    </div>
+
+                    <div id="Clock"></div>
+
+                    <div id="Party"></div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var modes = document.getElementsByClassName("mode");
+            var leds = document.getElementsByClassName("led");
+
+            Array.from(modes).forEach(function(mode) {
+                mode.addEventListener("click", selectMode);
+                mode.controls = document.getElementById(mode.innerText);
+            });
+
+            var mode = "Solid";
+            selectMode();
+            function selectMode(e) {
+                let selected = mode;
+                if(e != undefined) {
+                    selected = e.target.innerText;
+                }
+                
+
+                Array.from(modes).forEach(function(mode) {
+                    if(mode.innerText == selected) {
+                        mode.className = "mode selected";
+                        mode.controls.style.display = "";
+                    } else {
+                        mode.className = "mode";
+                        mode.controls.style.display = "none";
+                    }
+                });
+            }
+
+            //Brightness
+            var brightnessInput = document.getElementById("brightness");
+
+            //Solid color
+            var solid = {"solidColor": "ffffff"};
+            let solidColorInput = document.getElementById("solidColor");
+            solidColorInput.addEventListener("input", onInput);
+            solidColorInput.data = solid;
+            
+            let sumbitSolid = document.getElementById("solidUpdate")
+            sumbitSolid.addEventListener("click", onUpdate);
+            sumbitSolid.data = solid;
+
+
+            function onInput(e) {
+                e.target.data[e.target.id] = e.target.value.replace("#","");
+                updateMatrix();
+            }
+
+            updateMatrix();
+            function updateMatrix() {
+                switch(mode) {
+                    case "Solid":
+                        updateSolid();
+                        break;
+                }
+            }
+
+            function updateSolid() {
+                Array.from(leds).forEach(function(led) {
+                    led.style.backgroundColor = solid.solidColor;
+                });
+            }
+
+            function onUpdate(e) {
+                let url = "update?brightness=" + brightnessInput.value + "&mode=" + mode;
+
+                Object.keys(e.target.data).forEach(function(key) {
+                    url += "&";
+                    url += key;
+                    url += "=";
+                    url += e.target.data[key];
+                });
+
+
+                fetch(url);
+            }
+
+        </script>
+    </body>
+</html>
